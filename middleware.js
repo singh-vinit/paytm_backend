@@ -3,7 +3,7 @@ const { JWT_SECRET } = require("./config");
 
 export function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+  if (!authHeader || !authHeader.startsWith("Bearer")) {
     res.status(403).json({message: "No Header"});
   }
   const token = authHeader.split(" ")[1];
